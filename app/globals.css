@@ -2,22 +2,174 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #050a0f;
+  --foreground: #ededed;
+  --aqua: #00D9FF;
+  --gold: #FFD700;
+  --font-chakra: 'Chakra Petch', sans-serif;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-chakra);
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-chakra); font-weight: 600; }
+button, a.btn, [class*="btn-"] { font-family: var(--font-chakra); font-weight: 600; }
+nav, nav * { font-family: var(--font-chakra); font-weight: 500; }
+p, span, li, td { font-family: var(--font-chakra); font-weight: 300; }
+
+/* ═══ PARTICLE BACKGROUND ═══ */
+@keyframes particleDrift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--aqua);
+  border-radius: 50%;
+  animation: particleDrift linear infinite;
+  pointer-events: none;
+}
+
+/* ═══ HEXAGON LOGO ═══ */
+@keyframes hexPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(0, 217, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(0, 217, 255, 0.8));
+  }
+}
+
+.hex-logo {
+  width: 120px;
+  height: 104px;
+  position: relative;
+  animation: hexPulse 3s ease-in-out infinite;
+}
+
+.hex-logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: 2px solid var(--aqua);
+}
+
+.hex-inner {
+  position: absolute;
+  inset: 3px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: 2px solid var(--aqua);
+}
+
+.hex-border {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 217, 255, 0.05));
+  border: 2px solid var(--aqua);
+}
+
+/* ═══ TYPEWRITER ═══ */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCaret {
+  0%, 100% { border-color: var(--aqua); }
+  50% { border-color: transparent; }
+}
+
+.typewriter-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--aqua);
+  animation: typewriter 3.5s steps(48) 0.5s forwards, blinkCaret 0.75s step-end infinite;
+  width: 0;
+  display: inline-block;
+}
+
+/* ═══ MANIFESTO FADE IN ═══ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.manifesto-text {
+  animation: fadeInUp 2s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+/* ═══ GLASSMORPHISM CARD ═══ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+}
+
+/* ═══ HORIZONTAL SCROLL ═══ */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-strip {
+  animation: scrollLeft 20s linear infinite;
+}
+
+.scroll-strip:hover {
+  animation-play-state: paused;
+}
+
+/* ═══ GLOW LINE ═══ */
+@keyframes glowLine {
+  0%, 100% {
+    opacity: 0.4;
+    box-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
+  }
+}
+
+.glow-line {
+  animation: glowLine 3s ease-in-out infinite;
 }
 
 @layer utilities {

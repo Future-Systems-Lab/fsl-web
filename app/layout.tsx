@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Future Systems Lab — Sovereign Health Infrastructure",
+  title: "Where Mental Wellness Meets Metaverse — FSL",
   description: "Own your health data. Earn from your wellness. Build your sovereign health record on the blockchain.",
 };
 

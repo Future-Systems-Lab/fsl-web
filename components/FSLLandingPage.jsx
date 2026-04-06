@@ -135,14 +135,6 @@ export default function FSLLandingPage() {
         </div>
       </div>
 
-      {/* NAV */}
-      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(0,217,255,0.08)", position: "sticky", top: 0, zIndex: 100, background: "rgba(3,11,15,0.95)", backdropFilter: "blur(12px)" }}>
-        <span style={{ color: cyan, fontSize: "0.85rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Future Systems Lab</span>
-        <button style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>
-          Claim Your Sovereign Record
-        </button>
-      </nav>
-
       {/* HERO */}
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
         <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>The First Decentralized Sovereign Wellness Platform</span>
@@ -153,10 +145,7 @@ export default function FSLLandingPage() {
         <p style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", color: body, maxWidth: "560px", lineHeight: 1.75, marginBottom: "2rem", opacity: heroIn ? 1 : 0, transition: "all 1.1s ease 0.3s" }}>
           Own your encrypted health record. Invite the practitioners you trust. Submit and track your own claims. Pay with crypto, fiat, or insurance &mdash; anonymously, without shame, without surveillance.
         </p>
-        <button style={{ background: "transparent", border: `1px solid ${cyan}`, color: cyan, padding: "0.9rem 2.5rem", fontSize: "0.82rem", letterSpacing: "0.18em", textTransform: "uppercase", cursor: "pointer", borderRadius: "2px", fontFamily: "Georgia,serif", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s", marginBottom: "0.75rem" }}>
-          Claim Your Sovereign Record
-        </button>
-        <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em" }}>Wallet connection only &middot; No email required &middot; Your data never leaves your control</p>
+        <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s" }}>Wallet connection only &middot; No email required &middot; Your data never leaves your control</p>
       </section>
 
       <div style={divLine} />

@@ -49,21 +49,28 @@ const STEPS = [
 
 const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH","Fiat","HSA/FSA","Insurance*"];
 
-function useFakePrices() {
+function useLivePrices() {
   const [prices, setPrices] = useState(
-    COINS.map((c) => ({ ...c, price: c.base, change: (Math.random() - 0.5) * 2 }))
+    COINS.map((c) => ({ ...c, price: c.base, change: 0 }))
   );
   useEffect(() => {
-    const id = setInterval(() => {
-      setPrices((prev) =>
-        prev.map((c) => {
-          const delta = (Math.random() - 0.48) * 0.007;
-          const newPrice = c.price * (1 + delta);
-          const change = ((newPrice - c.base) / c.base) * 100;
-          return { ...c, price: newPrice, change };
+    const fetchPrices = () => {
+      fetch("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=XRP,XLM,HBAR,ALGO,ADA,ETH&tsyms=USD")
+        .then((r) => r.json())
+        .then((d) => {
+          if (!d.RAW) return;
+          setPrices(
+            COINS.map((c) => {
+              const raw = d.RAW[c.symbol]?.USD;
+              if (!raw) return { ...c, price: c.base, change: 0 };
+              return { ...c, price: raw.PRICE, change: raw.CHANGEPCT24HOUR || 0 };
+            })
+          );
         })
-      );
-    }, 2200);
+        .catch(() => {});
+    };
+    fetchPrices();
+    const id = setInterval(fetchPrices, 60000);
     return () => clearInterval(id);
   }, []);
   return prices;
@@ -88,7 +95,7 @@ const divLine  = { height: "1px", background: "linear-gradient(90deg, transparen
 const cardStyle = { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(0,217,255,0.1)", borderRadius: "4px", padding: "1.75rem" };
 
 export default function FSLLandingPage() {
-  const prices = useFakePrices();
+  const prices = useLivePrices();
   const [stigmaIdx, setStigmaIdx] = useState(0);
   const [stigmaVis, setStigmaVis] = useState(true);
   const [payIdx,    setPayIdx]    = useState(0);

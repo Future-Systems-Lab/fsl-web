@@ -136,8 +136,9 @@ export default function FSLLandingPage() {
       </div>
 
       {/* NAV */}
-      <nav style={{ display: "flex", alignItems: "center", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(0,217,255,0.08)", position: "sticky", top: 0, zIndex: 100, background: "rgba(3,11,15,0.95)", backdropFilter: "blur(12px)" }}>
+      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(0,217,255,0.08)", position: "sticky", top: 0, zIndex: 100, background: "rgba(3,11,15,0.95)", backdropFilter: "blur(12px)" }}>
         <span style={{ color: cyan, fontSize: "0.85rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Future Systems Lab</span>
+        <button style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>Claim Your Sovereign Record</button>
       </nav>
 
       {/* HERO */}

@@ -2,26 +2,31 @@
 
 import { useState, useEffect } from 'react'
 
-const CRYPTOCOMPARE = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=XRP,XLM,HBAR,ALGO,ADA,ETH&tsyms=USD'
-const FALLBACK: Record<string, number> = { xrp: 2.15, xlm: 0.38, hbar: 0.18, algo: 0.22, ada: 0.72, eth: 3400 }
+const COINS = ['XRP', 'XLM', 'HBAR', 'ALGO', 'ADA', 'ETH']
+const CRYPTOCOMPARE = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + COINS.join(',') + '&tsyms=USD'
 
 export default function Home() {
-  const [prices, setPrices] = useState(FALLBACK)
+  const [data, setData] = useState<Record<string, Record<string, Record<string, string>>>>({})
 
   useEffect(() => {
-    fetch(CRYPTOCOMPARE).then(r => r.json()).then(d => {
-      if (d.XRP?.USD) setPrices({ xrp: d.XRP.USD, xlm: d.XLM?.USD, hbar: d.HBAR?.USD, algo: d.ALGO?.USD, ada: d.ADA?.USD, eth: d.ETH?.USD })
-    }).catch(() => {})
-    const iv = setInterval(() => {
+    const fetchPrices = () => {
       fetch(CRYPTOCOMPARE).then(r => r.json()).then(d => {
-        if (d.XRP?.USD) setPrices({ xrp: d.XRP.USD, xlm: d.XLM?.USD, hbar: d.HBAR?.USD, algo: d.ALGO?.USD, ada: d.ADA?.USD, eth: d.ETH?.USD })
+        if (d.DISPLAY) setData(d.DISPLAY)
       }).catch(() => {})
-    }, 60000)
+    }
+    fetchPrices()
+    const iv = setInterval(fetchPrices, 60000)
     return () => clearInterval(iv)
   }, [])
 
-  const fmt = (v: number, d = 4) => v ? v.toFixed(d) : '—'
-  const ticker = `XRP: $${fmt(prices.xrp)} ◆ XLM: $${fmt(prices.xlm)} ◆ HBAR: $${fmt(prices.hbar)} ◆ ALGO: $${fmt(prices.algo)} ◆ ADA: $${fmt(prices.ada)} ◆ ETH: $${fmt(prices.eth, 0)} ◆ HNT: SOVEREIGN WELLNESS TOKEN ◆ WHERE MENTAL WELLNESS MEETS METAVERSE ◆ `
+  const tickerHtml = COINS.map(c => {
+    const info = data[c]?.USD
+    if (!info) return `<span style="color:#00D9FF">${c}: —</span>`
+    const change = parseFloat(info.CHANGEPCT24HOUR || '0')
+    const arrow = change >= 0 ? '▲' : '▼'
+    const color = change >= 0 ? '#22CC66' : '#FF4444'
+    return `<span style="color:#00D9FF">${c}: ${info.PRICE}</span> <span style="color:${color}">${arrow} ${Math.abs(change).toFixed(1)}%</span>`
+  }).join(' <span style="color:#00D9FF33">◆</span> ') + ' <span style="color:#00D9FF33">◆</span> HNT: <span style="color:#FFD700">SOVEREIGN WELLNESS TOKEN</span> <span style="color:#00D9FF33">◆</span> '
 
   const PLATFORMS = [
     { name: 'EncryptHealth', icon: '🔐', color: '#1E90FF', desc: 'Your sovereign frequency intelligence — mood mapping, nutrition journaling, Walsh biotype engine, and lab results. All encrypted. All yours.', url: 'https://encrypthealth.pw', label: 'Orthomolecular Intelligence' },
@@ -37,9 +42,10 @@ export default function Home() {
       {/* ═══ CRYPTO TICKER ═══ */}
       <div className="relative z-20 w-full h-9 bg-[#050505] border-b border-[#00D9FF]/10 overflow-hidden">
         <style>{`@keyframes fslTicker { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }`}</style>
-        <div style={{ display: 'inline-block', whiteSpace: 'nowrap', lineHeight: '36px', animation: 'fslTicker 50s linear infinite', fontSize: '0.7rem', letterSpacing: '0.06em', color: '#00D9FF' }}>
-          {ticker}{ticker}
-        </div>
+        <div
+          style={{ display: 'inline-block', whiteSpace: 'nowrap', lineHeight: '36px', animation: 'fslTicker 50s linear infinite', fontSize: '0.7rem', letterSpacing: '0.06em' }}
+          dangerouslySetInnerHTML={{ __html: tickerHtml + tickerHtml }}
+        />
       </div>
 
       {/* ═══ 1. PIONEER HERO ═══ */}

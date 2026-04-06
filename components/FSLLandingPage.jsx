@@ -22,7 +22,7 @@ const STIGMAS = [
 
 const PILLARS = [
   { icon: "\u{1F4C1}", title: "Own Your Records", body: "Your health history lives in your sovereign wallet \u2014 encrypted, permanent, and controlled by you alone. No hospital server. No corporate database. No one can revoke your access." },
-  { icon: "\u{1F469}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Practitioners", body: "Choose who enters your record. Invite licensed naturopaths, functional medicine providers, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
+  { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Practitioners", body: "Choose who enters your record. Invite licensed naturopaths, functional medicine providers, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
   { icon: "\u{1F9FE}", title: "Handle Your Own Claims", body: "Submit and track wellness claims directly through SovereignLedger \u2014 our sovereign claims infrastructure. For select practitioners, traditional insurance is also accepted. Your choice, always." },
   { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, HSA/FSA, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of health." },
 ];

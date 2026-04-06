@@ -135,6 +135,11 @@ export default function FSLLandingPage() {
         </div>
       </div>
 
+      {/* NAV */}
+      <nav style={{ display: "flex", alignItems: "center", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(0,217,255,0.08)", position: "sticky", top: 0, zIndex: 100, background: "rgba(3,11,15,0.95)", backdropFilter: "blur(12px)" }}>
+        <span style={{ color: cyan, fontSize: "0.85rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Future Systems Lab</span>
+      </nav>
+
       {/* HERO */}
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
         <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>The First Decentralized Sovereign Wellness Platform</span>

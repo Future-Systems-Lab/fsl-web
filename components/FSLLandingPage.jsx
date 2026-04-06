@@ -145,7 +145,7 @@ export default function FSLLandingPage() {
       {/* NAV */}
       <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(0,217,255,0.08)", position: "sticky", top: 0, zIndex: 100, background: "rgba(3,11,15,0.95)", backdropFilter: "blur(12px)" }}>
         <span style={{ color: cyan, fontSize: "0.85rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Future Systems Lab</span>
-        <button onClick={() => window.open("https://encrypthealth.pw/onboarding", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>Claim Your Sovereign Record</button>
+        <button onClick={() => window.open("https://encrypthealth.pw/sovereign-onboarding", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>Claim Your Sovereign Record</button>
       </nav>
 
       {/* HERO */}
@@ -297,7 +297,7 @@ export default function FSLLandingPage() {
         <p style={{ color: body, fontSize: "1rem", maxWidth: "480px", margin: "0 auto 2.5rem", lineHeight: 1.78 }}>
           Come home to yourself. Anonymously, safely, sovereignly. The record has always been yours &mdash; we just built a place to keep it.
         </p>
-        <button onClick={() => window.open("https://encrypthealth.pw/onboarding", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "1.1rem 3rem", fontSize: "0.88rem", letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", borderRadius: "2px", fontFamily: "Georgia,serif", fontWeight: "bold" }}>
+        <button onClick={() => window.open("https://encrypthealth.pw/sovereign-onboarding", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "1.1rem 3rem", fontSize: "0.88rem", letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", borderRadius: "2px", fontFamily: "Georgia,serif", fontWeight: "bold" }}>
           Claim Your Sovereign Record
         </button>
       </section>

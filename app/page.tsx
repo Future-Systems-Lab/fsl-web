@@ -24,11 +24,11 @@ export default function Home() {
   const ticker = `XRP: $${fmt(prices.xrp)} ◆ XLM: $${fmt(prices.xlm)} ◆ HBAR: $${fmt(prices.hbar)} ◆ ALGO: $${fmt(prices.algo)} ◆ ADA: $${fmt(prices.ada)} ◆ ETH: $${fmt(prices.eth, 0)} ◆ HNT: SOVEREIGN WELLNESS TOKEN ◆ WHERE MENTAL WELLNESS MEETS METAVERSE ◆ `
 
   const PLATFORMS = [
-    { name: 'HypnoNeuro', icon: '🧠', color: '#00FFD4', desc: '27 sovereign frequency portals. Adjunct wellness tool integrating plant intelligence, orthomolecular support, and Bashar thought reprogramming.', url: 'https://hypnoneuro-frontend.vercel.app', label: 'Games + Reprogramming' },
-    { name: 'EncryptHealth', icon: '🔐', color: '#1E90FF', desc: 'Your sovereign frequency intelligence — mood mapping, nutrition journaling, Walsh biotype engine, and lab results. All encrypted. All yours.', url: 'https://frontend-omega-six-b9szh0blg5.vercel.app', label: 'Orthomolecular Intelligence' },
-    { name: 'SovereignLedger', icon: '⛓️', color: '#FF6B6B', desc: 'On-chain session attestation, sovereign superbills, and participant-controlled access grants. The blockchain is the accountant.', url: 'https://sovereignledger.vercel.app', label: 'On-Chain Health Records' },
-    { name: 'AlchemistForge', icon: '⚗️', color: '#9D4EDD', desc: 'Shadow work and Jungian inner-child sovereign reflection. Document anchoring to IPFS. Permanent sovereign backup archive.', url: 'https://hypnoneuro-frontend.vercel.app', label: 'Shadow Work + Archive' },
+    { name: 'EncryptHealth', icon: '🔐', color: '#1E90FF', desc: 'Your sovereign frequency intelligence — mood mapping, nutrition journaling, Walsh biotype engine, and lab results. All encrypted. All yours.', url: 'https://encrypthealth.pw', label: 'Orthomolecular Intelligence' },
+    { name: 'SovereignLedger', icon: '⛓️', color: '#FF6B6B', desc: 'On-chain session attestation, sovereign superbills, and participant-controlled access grants. The blockchain is the accountant.', url: 'https://sovereignledger.pw', label: 'On-Chain Health Records' },
+    { name: 'HypnoNeuro', icon: '🧠', color: '#00FFD4', desc: '31 sovereign frequency portals. Adjunct wellness tool integrating plant intelligence, orthomolecular support, and Bashar thought reprogramming.', url: 'https://hypnoneuro.pw', label: 'Games + Reprogramming' },
     { name: 'NeuroBalance', icon: '🧬', color: '#7FFFD4', desc: 'Biosensor data sovereignty. Sync wearable data — heart rate, HRV, sleep, SpO2 — and anchor your biomarkers on-chain.', url: 'https://neurobalance-labs.vercel.app', label: 'Biosensor Data' },
+    { name: 'AlchemistForge', icon: '⚗️', color: '#9D4EDD', desc: 'Shadow work and Jungian inner-child sovereign reflection. Document anchoring to IPFS. Permanent sovereign backup archive.', url: 'https://hypnoneuro.pw', label: 'Shadow Work + Archive' },
   ]
 
   return (

@@ -287,7 +287,7 @@ export default function FSLLandingPage() {
           FSL is a platform for connection, education, and empowerment. We do not prescribe. We do not diagnose. We give you the data, the community, and the sovereign infrastructure to make your own informed decisions about your own sacred body.
         </p>
         <span style={{ fontSize: "0.65rem", letterSpacing: "0.22em", color: "rgba(0,217,255,0.5)", textTransform: "uppercase" }}>
-          Where Mental Wellness Meets Metaverse &middot; Future Systems Lab
+          Sovereignty by Design &middot; Future Systems Lab
         </span>
       </section>
 

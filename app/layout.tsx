@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Where Mental Wellness Meets Metaverse — FSL",
-  description: "Own your health data. Earn from your wellness. Build your sovereign health record on the blockchain.",
+  title: "Sovereignty by Design — Future Systems Lab",
+  description: "Future Systems Lab — Sovereignty by Design. Decentralized infrastructure for sovereign data governance, with behavioral health as deliberate proving ground.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

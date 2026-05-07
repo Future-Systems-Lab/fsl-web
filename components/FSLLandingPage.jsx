@@ -150,7 +150,7 @@ export default function FSLLandingPage() {
 
       {/* HERO */}
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
-        <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>The First Decentralized Sovereign Wellness Platform</span>
+        <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>Decentralized Infrastructure for Sovereign Data Governance</span>
         <h1 style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.12, fontWeight: "normal", marginBottom: "1.2rem", maxWidth: "820px", opacity: heroIn ? 1 : 0, transform: heroIn ? "none" : "translateY(24px)", transition: "all 1.1s ease 0.15s" }}>
           Your health records.<br />Your practitioners.<br />Your claims.<br />
           <span style={{ color: cyan, fontStyle: "italic" }}>Your sovereignty.</span>
@@ -311,9 +311,9 @@ export default function FSLLandingPage() {
           BCHN &mdash; Board Certified in Holistic Nutrition &nbsp;&middot;&nbsp;
           CBHP &mdash; Certified Blockchain Healthcare Professional
         </div>
-        <div>Pioneering decentralized Web3 sovereign wellness infrastructure</div>
+        <div>Pioneering decentralized Web3 sovereign data governance infrastructure</div>
         <div style={{ marginTop: "1rem", fontSize: "0.68rem", color: "rgba(122,155,168,0.55)", maxWidth: "600px", margin: "1rem auto 0" }}>
-          FSL is a wellness education and empowerment platform &mdash; not a medical provider, not a treatment service. All AI outputs use wellness language only and are never diagnostic. Your data. Your sovereignty. Always.
+          FSL is a decentralized infrastructure framework. Its behavioral health proving ground provides wellness education and empowerment &mdash; not medical advice or treatment. All AI outputs are educational only. Your data. Your sovereignty. Always.
         </div>
       </footer>
 

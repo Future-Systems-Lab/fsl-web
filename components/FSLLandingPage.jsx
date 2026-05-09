@@ -311,9 +311,9 @@ export default function FSLLandingPage() {
           BCHN &mdash; Board Certified in Holistic Nutrition &nbsp;&middot;&nbsp;
           CBHP &mdash; Certified Blockchain Healthcare Professional
         </div>
-        <div>Pioneering decentralized Web3 sovereign data governance infrastructure</div>
+        <div>Decentralized infrastructure for sovereign data governance</div>
         <div style={{ marginTop: "1rem", fontSize: "0.68rem", color: "rgba(122,155,168,0.55)", maxWidth: "600px", margin: "1rem auto 0" }}>
-          FSL is a decentralized infrastructure framework. Its behavioral health proving ground provides wellness education and empowerment &mdash; not medical advice or treatment. All AI outputs are educational only. Your data. Your sovereignty. Always.
+          FSL is decentralized infrastructure for sovereign data governance &mdash; not a medical provider, not a treatment service. All AI outputs are educational only. Your data. Your sovereignty. Always.
         </div>
       </footer>
 

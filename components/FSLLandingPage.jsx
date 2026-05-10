@@ -134,11 +134,11 @@ export default function FSLLandingPage() {
                 <span style={{ color: cyan, fontWeight: "bold" }}>{c.symbol}</span>
                 <span style={{ color: white }}>${fmt(c.price)}</span>
                 <span style={{ color: up ? "#00E676" : "#FF5252", fontSize: "0.65rem" }}>{up ? "▲" : "▼"} {Math.abs(c.change).toFixed(2)}%</span>
-                <span style={{ color: "rgba(0,217,255,0.25)", marginLeft: "0.5rem" }}>◆</span>
+                <span style={{ color: "rgba(0,217,255,0.6)", marginLeft: "0.5rem" }}>◆</span>
               </span>
             );
           })}
-          <span style={{ color: "rgba(0,217,255,0.4)", fontSize: "0.63rem", letterSpacing: "0.12em" }}>ISO 20022-ALIGNED SOVEREIGN PAYMENTS ◆</span>
+          <span style={{ color: "rgba(0,217,255,0.8)", fontSize: "0.63rem", letterSpacing: "0.12em" }}>ISO 20022-ALIGNED SOVEREIGN PAYMENTS ◆</span>
         </div>
       </div>
 

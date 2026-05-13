@@ -156,7 +156,7 @@ export default function FSLLandingPage() {
           <span style={{ color: cyan, fontStyle: "italic" }}>Your sovereignty.</span>
         </h1>
         <p style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", color: body, maxWidth: "560px", lineHeight: 1.75, marginBottom: "2rem", opacity: heroIn ? 1 : 0, transition: "all 1.1s ease 0.3s" }}>
-          Own your encrypted health record. Invite the practitioners you trust. Submit and track your own claims. Pay with crypto, fiat, or insurance &mdash; anonymously, without shame, without surveillance.
+          Own your encrypted health record. Invite the practitioners you trust. Submit and track your own claims. Pay with Crypto, XRP, or Sovereign Navigation &mdash; anonymously, without shame, without surveillance.
         </p>
         <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s" }}>Wallet connection only &middot; No email required &middot; Your data never leaves your control</p>
       </section>

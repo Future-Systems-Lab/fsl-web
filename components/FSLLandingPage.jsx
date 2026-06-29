@@ -11,7 +11,7 @@ const COINS = [
 
 const STIGMAS = [
   '"What if my employer finds out?"',
-  '"What if my insurance rates go up?"',
+  '"What if the system uses my data against me?"',
   '"I\'ve been dismissed and medicated, not heard."',
   '"I\'m not ready to say it out loud."',
   '"What if they label me?"',
@@ -23,8 +23,8 @@ const STIGMAS = [
 const PILLARS = [
   { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your sovereign health record lives anchored to your wallet, stored encrypted on IPFS \u2014 permanent, and controlled by you alone. No hospital server. No corporate database. FSL never holds your data." },
   { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite licensed Sovereign Guides \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
-  { icon: "\u{1F9FE}", title: "Handle Your Own Claims", body: "Submit and track wellness claims directly through SovereignLedger \u2014 our sovereign claims infrastructure. Select Sovereign Guides accept traditional insurance through their own practices. Your choice, always." },
-  { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, HSA/FSA, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of health." },
+  { icon: "\u{1F9FE}", title: "Own Your Sovereign Record", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Your sessions, your data, your terms. Always." },
+  { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of health." },
 ];
 
 const ESOTERIC = [
@@ -38,7 +38,7 @@ const WEB3_ROWS = [
   { old: "Records stored on a hospital server",      next: "Records live in your sovereign encrypted wallet", icon: "\u{1F3DB}\u{FE0F}" },
   { old: "A corporation decides who sees your data", next: "You decide who sees your data. Every time.",      icon: "\u{1F511}" },
   { old: "Your history can be used against you",     next: "Your history belongs only to you. Always.",       icon: "\u{1F6E1}\u{FE0F}" },
-  { old: "Insurance company controls your claims",   next: "You submit and track claims through SovereignLedger", icon: "\u{1F9FE}" },
+  { old: "A corporation controls your wellness records", next: "You own and verify your records through SovereignLedger", icon: "\u{1F9FE}" },
 ];
 
 const STEPS = [
@@ -47,7 +47,7 @@ const STEPS = [
   { n: "03", title: "Own Everything You\u2019ve Built", body: "Every entry encrypted and anchored to your sovereign wallet. Submit claims, manage payments, and share records on your terms. No middleman. No expiration." },
 ];
 
-const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH","Fiat","HSA/FSA","Insurance*"];
+const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH","Fiat"];
 
 function useLivePrices() {
   const [prices, setPrices] = useState(
@@ -205,7 +205,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>The Original Medicine</span>
         <h2 style={h2base}>Sovereignty is not new.<br />We are simply remembering.</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          Before pharmaceutical patents. Before insurance codes. Before the system decided what was wrong with <em>us</em> &mdash; there was plant intelligence, community healing, and the radical knowing that you were never broken. FSL honors that lineage and equips it with sovereign technology.
+          Before pharmaceutical patents. Before diagnostic codes. Before the system decided what was wrong with <em>us</em> &mdash; there was plant intelligence, community healing, and the radical knowing that you were never broken. FSL honors that lineage and equips it with sovereign technology.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {ESOTERIC.map((e) => (
@@ -226,7 +226,7 @@ export default function FSLLandingPage() {
           <span style={eyebrow}>What is Web3 and why does it protect you?</span>
           <h2 style={h2base}>Think of it like owning your home.</h2>
           <p style={{ color: body, fontSize: "1rem", lineHeight: 1.78, maxWidth: "620px", marginBottom: "2.5rem" }}>
-            With traditional health apps, you are renting space in someone else&rsquo;s building. The landlord &mdash; the corporation &mdash; sets the rules. They can sell your data, share it with insurers, or simply shut the doors.{" "}
+            With traditional health apps, you are renting space in someone else&rsquo;s building. The landlord &mdash; the corporation &mdash; sets the rules. They can sell your data, share it with third parties, or simply shut the doors.{" "}
             <strong style={{ color: white }}>With FSL, you own the deed.</strong> Decentralized technology means no single company holds your records. No one can revoke your access. No algorithm uses your truth against you.
           </p>
           {WEB3_ROWS.map((r) => (
@@ -263,7 +263,7 @@ export default function FSLLandingPage() {
         <div style={{ background: "rgba(0,0,0,0.35)", border: "1px solid rgba(212,175,55,0.2)", borderRadius: "4px", padding: "3rem 2rem", maxWidth: "860px", margin: "0 auto" }}>
           <span style={{ ...eyebrow, color: gold }}>Sovereign Payment Paths</span>
           <h2 style={{ ...h2base, color: gold }}>Pay how you choose.<br />That is sovereignty.</h2>
-          <p style={{ color: body, fontSize: "0.9rem", marginBottom: "2rem" }}>ISO 20022-aligned digital assets, fiat, or HSA/FSA. Select Sovereign Guides accept traditional insurance through their own practices.</p>
+          <p style={{ color: body, fontSize: "0.9rem", marginBottom: "2rem" }}>ISO 20022-aligned digital assets or fiat. Sovereign payment paths coordinated through your Sovereign Guide.</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem", justifyContent: "center" }}>
             {PAY_LABELS.map((p, i) => {
               const active = i === payIdx;
@@ -272,7 +272,7 @@ export default function FSLLandingPage() {
               );
             })}
           </div>
-          <p style={{ color: muted, fontSize: "0.72rem", marginTop: "1.25rem" }}>*Select Sovereign Guides accept traditional insurance through their own practices. SovereignLedger records session attestations on-chain; billing flows between you and your Sovereign Guide remain private to that relationship.</p>
+          <p style={{ color: muted, fontSize: "0.72rem", marginTop: "1.25rem" }}>SovereignLedger records session attestations on-chain. All billing flows between you and your Sovereign Guide remain private to that relationship.</p>
         </div>
       </section>
 

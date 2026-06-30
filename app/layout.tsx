@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sovereignty by Design — Future Systems Lab",
+  title: "SOVEREIGN by Design — Future Systems Lab",
   description: "Decentralized infrastructure for sovereign data governance, with behavioral health as deliberate proving ground.",
   icons: {
     icon: [

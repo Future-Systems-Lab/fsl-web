@@ -21,30 +21,30 @@ const STIGMAS = [
 ];
 
 const PILLARS = [
-  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your sovereign wellness record lives anchored to your wallet, stored encrypted on IPFS \u2014 permanent, and controlled by you alone. No hospital server. No corporate database. FSL never holds your data." },
+  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL \u2014 only you and the Sovereign Guides you authorize can retrieve it. No hospital server. No corporate database. FSL never holds your data." },
   { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite the Sovereign Guides you trust \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
-  { icon: "\u{1F9FE}", title: "Own Your Sovereign Record", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Your sessions, your data, your terms. Always." },
-  { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of health." },
+  { icon: "\u{1F9FE}", title: "Track & Verify on SovereignLedger", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Session attestations recorded on-chain. Your sessions, your data, your terms." },
+  { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of wellness." },
 ];
 
-const ESOTERIC = [
-  { icon: "\u{1F33F}", title: "Plant Intelligence", body: "Before pharmaceutical patents, the earth was the pharmacy. FSL integrates plant-based nutrition, adaptogens, and phytonutrient data into your sovereign wellness record \u2014 honoring the original medicine." },
-  { icon: "\u{1F52E}", title: "Your Body Already Knows", body: "Your body has been speaking through fatigue, cravings, patterns, and frequency. FSL gives you the data to finally remember \u2014 your correlations returned to you as evidence, not diagnosis." },
-  { icon: "\u{1F311}", title: "Shadow Into Light", body: "True wellness includes what we haven\u2019t wanted to look at. Through AlchemistForge, shadow aspects become integration points \u2014 Jungian archetypes meet on-chain permanence. Your whole self, witnessed." },
-  { icon: "\u{1F91D}", title: "Sovereign Community", body: "Healing was never meant to be solitary. Connect with Sovereign Guides who speak frequency, and a community of sovereign individuals on their own return-to-self journey. Anonymous when you need it." },
+const CURRICULUM = [
+  { icon: "\u{1F33F}", title: "Pattern Literacy", body: "Learn to read the connections between markers, feelings, cravings, and plant-based nutrition. The curriculum teaches orthomolecular frameworks from published literature \u2014 educational pattern recognition, not diagnosis." },
+  { icon: "\u{1F3AE}", title: "Sovereign Exercises", body: "Interactive games that teach wellness concepts through play. Trace neural patterns, build nutrient-dense meals, explore your daily routine. Earn HNT sovereign wellness tokens as you learn." },
+  { icon: "\u{1F311}", title: "Shadow Into Light", body: "Through AlchemistForge, shadow aspects become integration points \u2014 Jungian archetypes meet on-chain permanence. Client-side AES-256-GCM encrypted \u2014 your encryption keys, your journal, your eyes only." },
+  { icon: "\u{1F91D}", title: "Sovereign Community", body: "Connect with Sovereign Guides who share evidence-informed wellness education, and a community of sovereign participants on their own journey. Pseudonymous by default." },
 ];
 
 const WEB3_ROWS = [
-  { old: "Records stored on a hospital server",      next: "Records live in your sovereign encrypted wallet", icon: "\u{1F3DB}\u{FE0F}" },
-  { old: "A corporation decides who sees your data", next: "You decide who sees your data. Every time.",      icon: "\u{1F511}" },
-  { old: "Your history can be used against you",     next: "Your history belongs only to you. Always.",       icon: "\u{1F6E1}\u{FE0F}" },
+  { old: "Records stored on a hospital server",      next: "Records access-gated to your wallet on IPFS",  icon: "\u{1F3DB}\u{FE0F}" },
+  { old: "A corporation decides who sees your data", next: "You decide who sees your data. Every time.",     icon: "\u{1F511}" },
+  { old: "Your history can be used against you",     next: "Your history belongs only to you. Always.",      icon: "\u{1F6E1}\u{FE0F}" },
   { old: "A corporation controls your wellness records", next: "You own and verify your records through SovereignLedger", icon: "\u{1F9FE}" },
 ];
 
 const STEPS = [
-  { n: "01", title: "Arrive Sovereignly",          body: "Connect your Web3 wallet to begin. No name, no email, no social login \u2014 just your wallet signature. Your identity stays yours to reveal, on your terms, in your time." },
-  { n: "02", title: "Build Your Sovereign Record", body: "Track mood, nutrition, energy, and patterns. Invite your Sovereign Guides. Your data builds a living map of your frequency \u2014 visible only to you." },
-  { n: "03", title: "Own Everything You\u2019ve Built", body: "Every entry encrypted and anchored to your sovereign wallet. Manage sessions, track records, and share on your terms. No middleman. No expiration." },
+  { n: "01", title: "Connect Your Wallet",         body: "No name, no email, no social login \u2014 just your wallet signature. Your identity stays yours to reveal, on your terms, in your time. Pseudonymous by default." },
+  { n: "02", title: "Learn",                        body: "Follow the curriculum: pattern literacy, orthomolecular frameworks, sovereign exercises. The system teaches \u2014 published literature, not personal interpretation. Track mood, nutrition, and energy as you go." },
+  { n: "03", title: "Grow",                         body: "Earn HNT tokens. Invite a Sovereign Guide when you are ready. Your record builds over time \u2014 access-gated to your wallet, visible only to those you authorize." },
 ];
 
 const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH","Fiat"];
@@ -145,7 +145,7 @@ export default function FSLLandingPage() {
       {/* NAV */}
       <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1rem 1.5rem", borderBottom: "1px solid rgba(0,217,255,0.08)", position: "sticky", top: 0, zIndex: 100, background: "rgba(3,11,15,0.95)", backdropFilter: "blur(12px)" }}>
         <span style={{ color: cyan, fontSize: "0.85rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>Future Systems Lab</span>
-        <button onClick={() => window.open("https://encrypthealth.io", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>Claim Your Sovereign Record</button>
+        <button onClick={() => window.open("https://encrypthealth.io", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>Begin Learning</button>
       </nav>
 
       {/* DEMO BANNER */}
@@ -158,29 +158,39 @@ export default function FSLLandingPage() {
 
       {/* HERO */}
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
-        <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>Decentralized Infrastructure for Sovereign Data Governance</span>
-        <h1 style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.12, fontWeight: "normal", marginBottom: "1.2rem", maxWidth: "820px", opacity: heroIn ? 1 : 0, transform: heroIn ? "none" : "translateY(24px)", transition: "all 1.1s ease 0.15s" }}>
-          Your sovereign wellness record.<br />Your Sovereign Guides.<br />Your data.<br />
-          <span style={{ color: cyan, fontStyle: "italic" }}>Your sovereignty.</span>
+        <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>Decentralized Infrastructure for Sovereign Wellness Education</span>
+        <h1 style={{ fontSize: "clamp(1.6rem, 6vw, 3.2rem)", lineHeight: 1.2, fontWeight: "normal", marginBottom: "1.2rem", maxWidth: "820px", opacity: heroIn ? 1 : 0, transform: heroIn ? "none" : "translateY(24px)", transition: "all 1.1s ease 0.15s" }}>
+          A practitioner can only work with one person at a time. A system that teaches their method can outlive them and reach everyone they never could &mdash;{" "}
+          <span style={{ color: cyan, fontStyle: "italic" }}>this system is the solution to that.</span>
         </h1>
         <p style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", color: body, maxWidth: "560px", lineHeight: 1.75, marginBottom: "2rem", opacity: heroIn ? 1 : 0, transition: "all 1.1s ease 0.3s" }}>
-          Own your encrypted sovereign wellness record. Invite the Sovereign Guides you trust. Track your sessions and records. Pay with Crypto, XRP, or Sovereign Navigation &mdash; anonymously, without shame, without surveillance.
+          Self-serve wellness education. Sovereign data. Human care.
         </p>
-        <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s" }}>Wallet connection only &middot; No email required &middot; Your data never leaves your control</p>
+        <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s" }}>Wallet connection only &middot; No email required &middot; Pseudonymous by default</p>
       </section>
 
       <div style={divLine} />
 
-      {/* PILLARS */}
+      {/* DOCĒRE THESIS */}
+      <section style={{ padding: "5rem 1.5rem", maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
+        <span style={{ ...eyebrow, color: gold }}>Why &ldquo;Sovereign Guide,&rdquo; not &ldquo;doctor&rdquo;</span>
+        <p style={{ fontSize: "clamp(1rem, 2.5vw, 1.15rem)", color: body, lineHeight: 1.85, marginBottom: "0" }}>
+          The word <em style={{ color: white }}>doctor</em> comes from the Latin <em style={{ color: gold }}>doc&#275;re</em>&mdash;to teach. EncryptHealth was built on that original meaning. Rather than centering healthcare around appointments, it centers healthcare around education. Knowledge can be shared. Wisdom can be scaled. A teaching system can reach millions while remaining grounded in evidence-informed wellness methodologies. Participants learn, practice, earn, and grow toward greater health sovereignty. That is why we call them Sovereign Guides.
+        </p>
+      </section>
+
+      <div style={divLine} />
+
+      {/* WHAT FSL BUILDS */}
       <section style={{ padding: "5rem 1.5rem", maxWidth: "1100px", margin: "0 auto" }}>
-        <span style={eyebrow}>What FSL Actually Is</span>
-        <h2 style={h2base}>A platform where you hold<br />every key.</h2>
+        <span style={eyebrow}>What FSL Builds</span>
+        <h2 style={h2base}>Decentralized infrastructure for<br />sovereign wellness education</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          FSL is decentralized infrastructure for sovereign data governance. Behavioral health is our first deployed instance &mdash; chosen because it imposes the strictest regulatory load, highest stigma cost, and most complex consent topology of any deployable domain. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school where the system teaches and care stays human. Your sovereign wellness record is anchored to your wallet, stored encrypted on IPFS &mdash; FSL never holds your data. FSL operates outside HIPAA scope by design: your data lives with you, not with us.
+          FSL is a deployed Web3 infrastructure where the system teaches and human practitioners provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
-          {PILLARS.map((p) => (
-            <div key={p.title} style={cardStyle}>
+          {PILLARS.map((p, i) => (
+            <div key={i} style={cardStyle}>
               <span style={{ fontSize: "1.75rem", display: "block", marginBottom: "0.75rem" }}>{p.icon}</span>
               <div style={{ fontSize: "1rem", color: cyan, marginBottom: "0.6rem" }}>{p.title}</div>
               <p style={{ fontSize: "0.88rem", color: body, lineHeight: 1.72 }}>{p.body}</p>
@@ -202,22 +212,22 @@ export default function FSLLandingPage() {
         </div>
         <p style={{ color: body, fontSize: "1rem", maxWidth: "580px", margin: "0 auto", lineHeight: 1.78 }}>
           These are not weaknesses. They are the rational response of someone who has learned the system cannot be trusted with their truth.{" "}
-          <strong style={{ color: white }}>FSL was built for exactly this moment.</strong>
+          <strong style={{ color: white }}>FSL was built for exactly this moment.</strong> The system teaches. Care stays human. Your data stays yours.
         </p>
       </section>
 
       <div style={divLine} />
 
-      {/* ESOTERIC */}
+      {/* CURRICULUM */}
       <section style={{ padding: "5rem 1.5rem", maxWidth: "1100px", margin: "0 auto" }}>
-        <span style={eyebrow}>The Original Medicine</span>
-        <h2 style={h2base}>Sovereignty is not new.<br />We are simply remembering.</h2>
+        <span style={eyebrow}>The Curriculum</span>
+        <h2 style={h2base}>Learn. Practice. Earn. Grow.</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          Before pharmaceutical patents. Before diagnostic codes. Before the system decided what was wrong with <em>us</em> &mdash; there was plant intelligence, community healing, and the radical knowing that you were never broken. FSL honors that lineage and equips it with sovereign technology.
+          EncryptHealth is a sovereign wellness school. The system teaches pattern literacy, orthomolecular frameworks, and plant-based nutrition from published literature &mdash; educational self-assessment, never diagnosis. AI surfaces educational information only. A qualified practitioner provides all real care.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
-          {ESOTERIC.map((e) => (
-            <div key={e.title} style={cardStyle}>
+          {CURRICULUM.map((e, i) => (
+            <div key={i} style={cardStyle}>
               <span style={{ fontSize: "1.75rem", display: "block", marginBottom: "0.75rem" }}>{e.icon}</span>
               <div style={{ fontSize: "1rem", color: cyan, marginBottom: "0.6rem" }}>{e.title}</div>
               <p style={{ fontSize: "0.88rem", color: body, lineHeight: 1.72 }}>{e.body}</p>
@@ -235,10 +245,10 @@ export default function FSLLandingPage() {
           <h2 style={h2base}>Think of it like owning your home.</h2>
           <p style={{ color: body, fontSize: "1rem", lineHeight: 1.78, maxWidth: "620px", marginBottom: "2.5rem" }}>
             With traditional health apps, you are renting space in someone else&rsquo;s building. The landlord &mdash; the corporation &mdash; sets the rules. They can sell your data, share it with third parties, or simply shut the doors.{" "}
-            <strong style={{ color: white }}>With FSL, you own the deed.</strong> Decentralized technology means no single company holds your records. No one can revoke your access. No algorithm uses your truth against you.
+            <strong style={{ color: white }}>With FSL, you own the deed.</strong> Your wallet controls access to your record. No single company holds it. No one can revoke your access. No algorithm uses your truth against you.
           </p>
-          {WEB3_ROWS.map((r) => (
-            <div key={r.old} style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0.75rem", alignItems: "center", padding: "1.2rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          {WEB3_ROWS.map((r, i) => (
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0.75rem", alignItems: "center", padding: "1.2rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
               <div style={{ color: muted, fontSize: "0.88rem", textDecoration: "line-through", textDecorationColor: "rgba(255,80,80,0.4)" }}>{r.old}</div>
               <div style={{ color: cyan, fontSize: "1.1rem", textAlign: "center" }}>{r.icon}&rarr;</div>
               <div style={{ color: white, fontSize: "0.88rem", fontWeight: "bold" }}>{r.next}</div>
@@ -252,9 +262,9 @@ export default function FSLLandingPage() {
       {/* HOW IT WORKS */}
       <section style={{ padding: "5rem 1.5rem", maxWidth: "900px", margin: "0 auto" }}>
         <span style={eyebrow}>How It Works</span>
-        <h2 style={h2base}>Three steps. No jargon. No compromise.</h2>
-        {STEPS.map((s) => (
-          <div key={s.n} style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start", padding: "1.75rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <h2 style={h2base}>Three steps.</h2>
+        {STEPS.map((s, i) => (
+          <div key={i} style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start", padding: "1.75rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
             <div style={{ fontSize: "2.5rem", color: "rgba(0,217,255,0.18)", fontStyle: "italic", lineHeight: 1, minWidth: "52px" }}>{s.n}</div>
             <div>
               <div style={{ fontSize: "1rem", color: cyan, marginBottom: "0.4rem" }}>{s.title}</div>
@@ -270,8 +280,8 @@ export default function FSLLandingPage() {
       <section style={{ padding: "5rem 1.5rem", textAlign: "center" }}>
         <div style={{ background: "rgba(0,0,0,0.35)", border: "1px solid rgba(212,175,55,0.2)", borderRadius: "4px", padding: "3rem 2rem", maxWidth: "860px", margin: "0 auto" }}>
           <span style={{ ...eyebrow, color: gold }}>Sovereign Payment Paths</span>
-          <h2 style={{ ...h2base, color: gold }}>Pay how you choose.<br />That is sovereignty.</h2>
-          <p style={{ color: body, fontSize: "0.9rem", marginBottom: "2rem" }}>ISO 20022-aligned digital assets or fiat. Sovereign payment paths coordinated through your Sovereign Guide.</p>
+          <h2 style={{ ...h2base, color: gold }}>Pay how you choose.</h2>
+          <p style={{ color: body, fontSize: "0.9rem", marginBottom: "2rem" }}>ISO 20022-aligned digital assets or fiat. Payment paths coordinated through your Sovereign Guide.</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem", justifyContent: "center" }}>
             {PAY_LABELS.map((p, i) => {
               const active = i === payIdx;
@@ -286,42 +296,43 @@ export default function FSLLandingPage() {
 
       <div style={divLine} />
 
-      {/* MANIFESTO */}
-      <section style={{ textAlign: "center", padding: "7rem 1.5rem", background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,217,255,0.05) 0%, transparent 70%)" }}>
-        <p style={{ fontSize: "clamp(1.4rem, 4vw, 2.5rem)", fontStyle: "italic", fontWeight: "normal", lineHeight: 1.45, maxWidth: "780px", margin: "0 auto 1.75rem", color: white }}>
-          &ldquo;This is not treatment.<br />This is not a diagnosis.<br />This is your frequency,<br /><span style={{ color: cyan }}>returned to you.</span>&rdquo;
+      {/* IDENTITY + HIPAA */}
+      <section style={{ padding: "5rem 1.5rem", maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
+        <span style={eyebrow}>Privacy by Architecture</span>
+        <h2 style={h2base}>Designed outside HIPAA scope.</h2>
+        <p style={{ color: body, fontSize: "1rem", lineHeight: 1.85, marginBottom: "1.5rem" }}>
+          FSL is designed to operate outside HIPAA scope under stated deployment assumptions. It holds zero protected health information by architectural design &mdash; not by compliance, but by the structural impossibility of storing PHI. FSL is not a medical provider and does not offer treatment, diagnosis, or clinical assessment. All AI outputs are educational only.
         </p>
-        <p style={{ color: body, fontSize: "0.95rem", maxWidth: "560px", margin: "0 auto 2rem", lineHeight: 1.8 }}>
-          FSL is a platform for connection, education, and empowerment. We do not prescribe. We do not diagnose. We give you the data, the community, and the sovereign infrastructure to make your own informed decisions about your own sacred body.
+        <p style={{ color: muted, fontSize: "0.85rem", lineHeight: 1.75 }}>
+          Wallet connection only. No email. No name. No PII collected. Pseudonymous by default &mdash; your identity is yours to reveal, on your terms.
         </p>
-        <span style={{ fontSize: "0.65rem", letterSpacing: "0.22em", color: "rgba(0,217,255,0.5)", textTransform: "uppercase" }}>
-          SOVEREIGN by Design &middot; Future Systems Lab
-        </span>
       </section>
+
+      <div style={divLine} />
 
       {/* FINAL CTA */}
       <section style={{ background: dark, borderTop: "1px solid rgba(0,217,255,0.12)", padding: "6rem 1.5rem", textAlign: "center" }}>
-        <h2 style={{ ...h2base, fontSize: "clamp(1.6rem, 4vw, 2.8rem)" }}>You have always been<br />your own medicine.</h2>
+        <h2 style={{ ...h2base, fontSize: "clamp(1.6rem, 4vw, 2.8rem)" }}>Begin your sovereign<br />wellness education.</h2>
         <p style={{ color: body, fontSize: "1rem", maxWidth: "480px", margin: "0 auto 2.5rem", lineHeight: 1.78 }}>
-          Come home to yourself. Anonymously, safely, sovereignly. The record has always been yours &mdash; we just built a place to keep it.
+          The system teaches. Care stays human. Your data stays yours.
         </p>
         <button onClick={() => window.open("https://encrypthealth.io", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "1.1rem 3rem", fontSize: "0.88rem", letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", borderRadius: "2px", fontFamily: "Georgia,serif", fontWeight: "bold" }}>
-          Claim Your Sovereign Record
+          Begin Learning
         </button>
       </section>
 
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "2.5rem 1.5rem", textAlign: "center", color: muted, fontSize: "0.75rem", letterSpacing: "0.07em", lineHeight: 2.1 }}>
         <div style={{ color: cyan, marginBottom: "0.4rem", letterSpacing: "0.15em", fontSize: "0.7rem" }}>FUTURE SYSTEMS LAB</div>
-        <div>Built by Dr. Meg Monta&ntilde;ez-Davenport</div>
+        <div>Built by Margarita Monta&ntilde;ez Davenport</div>
         <div style={{ color: body, fontSize: "0.72rem", marginTop: "0.25rem" }}>
           D.N.Psy. &mdash; Doctor of Naturopathic Psychology &nbsp;&middot;&nbsp;
           BCHN &mdash; Board Certified in Holistic Nutrition &nbsp;&middot;&nbsp;
           CBHP &mdash; Certified Blockchain Healthcare Professional
         </div>
-        <div>Decentralized infrastructure for sovereign data governance</div>
+        <div>Decentralized infrastructure for sovereign wellness education</div>
         <div style={{ marginTop: "1rem", fontSize: "0.68rem", color: "rgba(122,155,168,0.55)", maxWidth: "600px", margin: "1rem auto 0" }}>
-          FSL is decentralized infrastructure for sovereign data governance &mdash; not a medical provider, not a treatment service. All AI outputs are educational only. Your data. Your sovereignty. Always.
+          FSL is decentralized infrastructure for sovereign wellness education &mdash; not a medical provider, not a treatment service. The system teaches; human practitioners provide all real care. All AI outputs are educational only. Your data. Your sovereignty. Always.
         </div>
       </footer>
 

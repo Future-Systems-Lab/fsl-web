@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 const COINS = [
-  { symbol: "XRP",  base: 2.18 },
-  { symbol: "XLM",  base: 0.112 },
-  { symbol: "HBAR", base: 0.078 },
-  { symbol: "ALGO", base: 0.19 },
-  { symbol: "ADA",  base: 0.44 },
-  { symbol: "ETH",  base: 1821.0 },
+  { symbol: "XRP",  id: "ripple",            base: 2.18 },
+  { symbol: "XLM",  id: "stellar",           base: 0.42 },
+  { symbol: "HBAR", id: "hedera-hashgraph",  base: 0.28 },
+  { symbol: "ALGO", id: "algorand",          base: 0.38 },
+  { symbol: "ADA",  id: "cardano",           base: 0.72 },
+  { symbol: "ETH",  id: "ethereum",          base: 3400 },
 ];
 
 const STIGMAS = [
@@ -21,14 +21,14 @@ const STIGMAS = [
 ];
 
 const PILLARS = [
-  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your sovereign health record lives anchored to your wallet, stored encrypted on IPFS \u2014 permanent, and controlled by you alone. No hospital server. No corporate database. FSL never holds your data." },
-  { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite licensed Sovereign Guides \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
+  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your sovereign wellness record lives anchored to your wallet, stored encrypted on IPFS \u2014 permanent, and controlled by you alone. No hospital server. No corporate database. FSL never holds your data." },
+  { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite the Sovereign Guides you trust \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
   { icon: "\u{1F9FE}", title: "Own Your Sovereign Record", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Your sessions, your data, your terms. Always." },
   { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of health." },
 ];
 
 const ESOTERIC = [
-  { icon: "\u{1F33F}", title: "Plant Intelligence", body: "Before pharmaceutical patents, the earth was the pharmacy. FSL integrates plant-based nutrition, adaptogens, and phytonutrient data into your sovereign health record \u2014 honoring the original medicine." },
+  { icon: "\u{1F33F}", title: "Plant Intelligence", body: "Before pharmaceutical patents, the earth was the pharmacy. FSL integrates plant-based nutrition, adaptogens, and phytonutrient data into your sovereign wellness record \u2014 honoring the original medicine." },
   { icon: "\u{1F52E}", title: "Your Body Already Knows", body: "Your body has been speaking through fatigue, cravings, patterns, and frequency. FSL gives you the data to finally remember \u2014 your correlations returned to you as evidence, not diagnosis." },
   { icon: "\u{1F311}", title: "Shadow Into Light", body: "True wellness includes what we haven\u2019t wanted to look at. Through AlchemistForge, shadow aspects become integration points \u2014 Jungian archetypes meet on-chain permanence. Your whole self, witnessed." },
   { icon: "\u{1F91D}", title: "Sovereign Community", body: "Healing was never meant to be solitary. Connect with Sovereign Guides who speak frequency, and a community of sovereign individuals on their own return-to-self journey. Anonymous when you need it." },
@@ -44,7 +44,7 @@ const WEB3_ROWS = [
 const STEPS = [
   { n: "01", title: "Arrive Sovereignly",          body: "Connect your Web3 wallet to begin. No name, no email, no social login \u2014 just your wallet signature. Your identity stays yours to reveal, on your terms, in your time." },
   { n: "02", title: "Build Your Sovereign Record", body: "Track mood, nutrition, energy, and patterns. Invite your Sovereign Guides. Your data builds a living map of your frequency \u2014 visible only to you." },
-  { n: "03", title: "Own Everything You\u2019ve Built", body: "Every entry encrypted and anchored to your sovereign wallet. Submit claims, manage payments, and share records on your terms. No middleman. No expiration." },
+  { n: "03", title: "Own Everything You\u2019ve Built", body: "Every entry encrypted and anchored to your sovereign wallet. Manage sessions, track records, and share on your terms. No middleman. No expiration." },
 ];
 
 const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH","Fiat"];
@@ -54,20 +54,20 @@ function useLivePrices() {
     COINS.map((c) => ({ ...c, price: c.base, change: 0 }))
   );
   useEffect(() => {
+    const ids = COINS.map((c) => c.id).join(",");
     const fetchPrices = () => {
-      fetch("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=XRP,XLM,HBAR,ALGO,ADA,ETH&tsyms=USD")
-        .then((r) => r.json())
+      fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`)
+        .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then((d) => {
-          if (!d.RAW) return;
           setPrices(
             COINS.map((c) => {
-              const raw = d.RAW[c.symbol]?.USD;
-              if (!raw) return { ...c, price: c.base, change: 0 };
-              return { ...c, price: raw.PRICE, change: raw.CHANGEPCT24HOUR || 0 };
+              const info = d[c.id];
+              if (!info || info.usd == null) return { ...c, price: c.base, change: 0 };
+              return { ...c, price: info.usd, change: info.usd_24h_change || 0 };
             })
           );
         })
-        .catch(() => {});
+        .catch(() => { /* silent — static fallback already rendered */ });
     };
     fetchPrices();
     const id = setInterval(fetchPrices, 60000);
@@ -77,8 +77,8 @@ function useLivePrices() {
 }
 
 function fmt(n) {
-  if (n >= 100) return n.toFixed(2);
-  if (n >= 1)   return n.toFixed(3);
+  if (n >= 100) return n.toLocaleString("en-US", { maximumFractionDigits: 0 });
+  if (n >= 1)   return n.toFixed(2);
   return n.toFixed(4);
 }
 
@@ -148,15 +148,23 @@ export default function FSLLandingPage() {
         <button onClick={() => window.open("https://encrypthealth.io", "_blank")} style={{ background: cyan, color: dark, border: "none", padding: "0.55rem 1.2rem", borderRadius: "2px", fontFamily: "Georgia,serif", fontSize: "0.78rem", letterSpacing: "0.06em", cursor: "pointer", fontWeight: "bold" }}>Claim Your Sovereign Record</button>
       </nav>
 
+      {/* DEMO BANNER */}
+      <div style={{ margin: "0 auto", maxWidth: 1100, padding: "0.75rem 1.5rem 0" }}>
+        <div style={{ border: "1px solid rgba(212,175,55,0.3)", background: "rgba(212,175,55,0.04)", borderRadius: 6, padding: "0.6rem 1rem", textAlign: "center" }}>
+          <p style={{ color: gold, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", margin: 0 }}>PROOF-OF-CONCEPT DEMONSTRATION</p>
+          <p style={{ color: "rgba(212,175,55,0.6)", fontSize: "0.6rem", margin: "0.2rem 0 0" }}>Ethereum Sepolia testnet. All data simulated — no real health information.</p>
+        </div>
+      </div>
+
       {/* HERO */}
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
         <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>Decentralized Infrastructure for Sovereign Data Governance</span>
         <h1 style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.12, fontWeight: "normal", marginBottom: "1.2rem", maxWidth: "820px", opacity: heroIn ? 1 : 0, transform: heroIn ? "none" : "translateY(24px)", transition: "all 1.1s ease 0.15s" }}>
-          Your sovereign health record.<br />Your Sovereign Guides.<br />Your claims.<br />
+          Your sovereign wellness record.<br />Your Sovereign Guides.<br />Your data.<br />
           <span style={{ color: cyan, fontStyle: "italic" }}>Your sovereignty.</span>
         </h1>
         <p style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", color: body, maxWidth: "560px", lineHeight: 1.75, marginBottom: "2rem", opacity: heroIn ? 1 : 0, transition: "all 1.1s ease 0.3s" }}>
-          Own your encrypted sovereign health record. Invite the Sovereign Guides you trust. Submit and track your own claims. Pay with Crypto, XRP, or Sovereign Navigation &mdash; anonymously, without shame, without surveillance.
+          Own your encrypted sovereign wellness record. Invite the Sovereign Guides you trust. Track your sessions and records. Pay with Crypto, XRP, or Sovereign Navigation &mdash; anonymously, without shame, without surveillance.
         </p>
         <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s" }}>Wallet connection only &middot; No email required &middot; Your data never leaves your control</p>
       </section>
@@ -168,7 +176,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>What FSL Actually Is</span>
         <h2 style={h2base}>A platform where you hold<br />every key.</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          FSL is decentralized infrastructure for sovereign data governance. Behavioral health is our first deployed instance &mdash; chosen because it imposes the strictest regulatory load, highest stigma cost, and most complex consent topology of any deployable domain. Your sovereign health record is anchored to your wallet, stored encrypted on IPFS &mdash; FSL never holds your data. FSL operates outside HIPAA scope by design: your data lives with you, not with us.
+          FSL is decentralized infrastructure for sovereign data governance. Behavioral health is our first deployed instance &mdash; chosen because it imposes the strictest regulatory load, highest stigma cost, and most complex consent topology of any deployable domain. Your sovereign wellness record is anchored to your wallet, stored encrypted on IPFS &mdash; FSL never holds your data. FSL operates outside HIPAA scope by design: your data lives with you, not with us.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {PILLARS.map((p) => (

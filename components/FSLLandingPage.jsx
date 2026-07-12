@@ -30,7 +30,7 @@ const PILLARS = [
 const CURRICULUM = [
   { icon: "\u{1F33F}", title: "Pattern Literacy", body: "Learn to read the connections between markers, feelings, cravings, and plant-based nutrition. The curriculum teaches orthomolecular frameworks from published literature \u2014 educational pattern recognition, not diagnosis." },
   { icon: "\u{1F3AE}", title: "Sovereign Exercises", body: "Interactive games that teach wellness concepts through play. Trace neural patterns, build nutrient-dense meals, explore your daily routine. Earn HNT sovereign wellness tokens as you learn." },
-  { icon: "\u{1F311}", title: "Shadow Into Light", body: "Through AlchemistForge, shadow aspects become integration points \u2014 Jungian archetypes meet on-chain permanence. Client-side AES-256-GCM encrypted \u2014 your encryption keys, your journal, your eyes only." },
+  { icon: "\u{1F311}", title: "Shadow Into Light", body: "Through AlchemistForge, shadow aspects become integration points where what you\u2019ve kept hidden meets on-chain permanence. Client-side AES-256-GCM encrypted \u2014 your encryption keys, your journal, your eyes only." },
   { icon: "\u{1F91D}", title: "Sovereign Community", body: "Connect with Sovereign Guides who share evidence-informed wellness education, and a community of sovereign participants on their own journey. Pseudonymous by default." },
 ];
 

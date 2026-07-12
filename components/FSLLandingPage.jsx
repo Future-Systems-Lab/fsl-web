@@ -24,7 +24,7 @@ const PILLARS = [
   { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL \u2014 only you and the Sovereign Guides you authorize can retrieve it. No hospital server. No corporate database. FSL never holds your data." },
   { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite the Sovereign Guides you trust \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
   { icon: "\u{1F9FE}", title: "Track & Verify on SovereignLedger", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Session attestations recorded on-chain. Your sessions, your data, your terms." },
-  { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto, fiat, or ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of wellness." },
+  { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto and ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of wellness." },
 ];
 
 const CURRICULUM = [
@@ -47,7 +47,7 @@ const STEPS = [
   { n: "03", title: "Grow",                         body: "Earn HNT tokens. Invite a Sovereign Guide when you are ready. Your record builds over time \u2014 access-gated to your wallet, visible only to those you authorize." },
 ];
 
-const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH","Fiat"];
+const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH"];
 
 function useLivePrices() {
   const [prices, setPrices] = useState(
@@ -186,7 +186,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>What FSL Builds</span>
         <h2 style={h2base}>Decentralized infrastructure for<br />sovereign wellness education</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          FSL is a deployed Web3 infrastructure where the system teaches and human practitioners provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
+          FSL is a deployed hybrid Web3 infrastructure where an automated layer teaches and human practitioners provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {PILLARS.map((p, i) => (
@@ -281,7 +281,7 @@ export default function FSLLandingPage() {
         <div style={{ background: "rgba(0,0,0,0.35)", border: "1px solid rgba(212,175,55,0.2)", borderRadius: "4px", padding: "3rem 2rem", maxWidth: "860px", margin: "0 auto" }}>
           <span style={{ ...eyebrow, color: gold }}>Sovereign Payment Paths</span>
           <h2 style={{ ...h2base, color: gold }}>Pay how you choose.</h2>
-          <p style={{ color: body, fontSize: "0.9rem", marginBottom: "2rem" }}>ISO 20022-aligned digital assets or fiat. Payment paths coordinated through your Sovereign Guide.</p>
+          <p style={{ color: body, fontSize: "0.9rem", marginBottom: "2rem" }}>ISO 20022-aligned digital assets. Payment paths coordinated through your Sovereign Guide.</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem", justifyContent: "center" }}>
             {PAY_LABELS.map((p, i) => {
               const active = i === payIdx;

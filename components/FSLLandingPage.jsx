@@ -173,7 +173,7 @@ export default function FSLLandingPage() {
 
       {/* DOCĒRE THESIS */}
       <section style={{ padding: "5rem 1.5rem", maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
-        <span style={{ ...eyebrow, color: gold }}>Why &ldquo;Sovereign Guide,&rdquo; not &ldquo;doctor&rdquo;</span>
+        <span style={{ ...eyebrow, color: gold }}>The Original Meaning of Doctor</span>
         <p style={{ fontSize: "clamp(1rem, 2.5vw, 1.15rem)", color: body, lineHeight: 1.85, marginBottom: "0" }}>
           The word <em style={{ color: white }}>doctor</em> comes from the Latin <em style={{ color: gold }}>doc&#275;re</em>&mdash;to teach. EncryptHealth was built on that original meaning. Rather than centering healthcare around appointments, it centers healthcare around education. Knowledge can be shared. Wisdom can be scaled. A teaching system can reach millions while remaining grounded in evidence-informed wellness methodologies. Participants learn, practice, earn, and grow toward greater health sovereignty. That is why we call them Sovereign Guides.
         </p>

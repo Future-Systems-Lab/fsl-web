@@ -21,7 +21,7 @@ const STIGMAS = [
 ];
 
 const PILLARS = [
-  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL \u2014 only you and the Sovereign Guides you authorize can retrieve it. No hospital server. No corporate database. FSL never holds your data." },
+  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your wellness record is indexed to your wallet address and stored in FSL\u2019s database. You grant Guides access with a wallet signature and revoke it any time. Session attestations are recorded on Ethereum Sepolia testnet. Client-side encryption and IPFS-based storage \u2014 so that FSL cannot read your data \u2014 are scaffolded and specified as the Phase 5 doctoral contribution." },
   { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite the Sovereign Guides you trust \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
   { icon: "\u{1F9FE}", title: "Track & Verify on SovereignLedger", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Session attestations recorded on-chain. Your sessions, your data, your terms." },
   { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto and ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of wellness." },
@@ -186,7 +186,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>What FSL Builds</span>
         <h2 style={h2base}>Decentralized infrastructure for<br />sovereign wellness education</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          FSL is a deployed hybrid Web3 infrastructure where an automated layer teaches and human practitioners provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is anchored to your wallet and access-gated on IPFS via Lighthouse ACL. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
+          FSL is a deployed hybrid Web3 infrastructure where an automated layer teaches and human practitioners provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is indexed to your wallet address. Session attestations are recorded on Ethereum Sepolia testnet. IPFS-based decentralized storage is scaffolded. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {PILLARS.map((p, i) => (

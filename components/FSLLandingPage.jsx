@@ -51,7 +51,7 @@ const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH"];
 
 function useLivePrices() {
   const [prices, setPrices] = useState(
-    COINS.map((c) => ({ ...c, price: c.base, change: 0 }))
+    COINS.map((c) => ({ ...c, price: null, change: null }))
   );
   useEffect(() => {
     const ids = COINS.map((c) => c.id).join(",");
@@ -62,15 +62,15 @@ function useLivePrices() {
           setPrices(
             COINS.map((c) => {
               const info = d[c.id];
-              if (!info || info.usd == null) return { ...c, price: c.base, change: 0 };
+              if (!info || info.usd == null) return { ...c, price: null, change: null };
               return { ...c, price: info.usd, change: info.usd_24h_change || 0 };
             })
           );
         })
-        .catch(() => { /* silent — static fallback already rendered */ });
+        .catch((e) => { console.warn('[ticker] price fetch failed:', e.message); });
     };
     fetchPrices();
-    const id = setInterval(fetchPrices, 60000);
+    const id = setInterval(fetchPrices, 120000);
     return () => clearInterval(id);
   }, []);
   return prices;
@@ -128,12 +128,13 @@ export default function FSLLandingPage() {
         `}</style>
         <div className="ticker-inner">
           {[...prices, ...prices].map((c, idx) => {
+            const live = c.price != null;
             const up = c.change >= 0;
             return (
               <span key={idx} style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", fontSize: "0.72rem", letterSpacing: "0.06em" }}>
                 <span style={{ color: cyan, fontWeight: "bold" }}>{c.symbol}</span>
-                <span style={{ color: white }}>${fmt(c.price)}</span>
-                <span style={{ color: up ? "#00E676" : "#FF5252", fontSize: "0.65rem" }}>{up ? "▲" : "▼"} {Math.abs(c.change).toFixed(2)}%</span>
+                <span style={{ color: white }}>{live ? `$${fmt(c.price)}` : "—"}</span>
+                {live && c.change != null && <span style={{ color: up ? "#00E676" : "#FF5252", fontSize: "0.65rem" }}>{up ? "▲" : "▼"} {Math.abs(c.change).toFixed(2)}%</span>}
                 <span style={{ color: "rgba(0,217,255,0.6)", marginLeft: "0.5rem" }}>◆</span>
               </span>
             );

@@ -35,7 +35,7 @@ const CURRICULUM = [
 ];
 
 const WEB3_ROWS = [
-  { old: "Records stored on a hospital server",      next: "Records access-gated to your wallet on IPFS",  icon: "\u{1F3DB}\u{FE0F}" },
+  { old: "Records stored on a hospital server",      next: "Records access-gated to your wallet",  icon: "\u{1F3DB}\u{FE0F}" },
   { old: "A corporation decides who sees your data", next: "You decide who sees your data. Every time.",     icon: "\u{1F511}" },
   { old: "Your history can be used against you",     next: "Your history belongs only to you. Always.",      icon: "\u{1F6E1}\u{FE0F}" },
   { old: "A corporation controls your wellness records", next: "You own and verify your records through SovereignLedger", icon: "\u{1F9FE}" },
@@ -160,7 +160,7 @@ export default function FSLLandingPage() {
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
         <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>Decentralized Infrastructure for Sovereign Wellness Education</span>
         <h1 style={{ fontSize: "clamp(1.6rem, 6vw, 3.2rem)", lineHeight: 1.2, fontWeight: "normal", marginBottom: "1.2rem", maxWidth: "820px", opacity: heroIn ? 1 : 0, transform: heroIn ? "none" : "translateY(24px)", transition: "all 1.1s ease 0.15s" }}>
-          A practitioner can only work with one person at a time. A system that teaches their method can outlive them and reach everyone they never could &mdash;{" "}
+          A Sovereign Guide can only work with one person at a time. A system that teaches their method can outlive them and reach everyone they never could &mdash;{" "}
           <span style={{ color: cyan, fontStyle: "italic" }}>this system is the solution to that.</span>
         </h1>
         <p style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", color: body, maxWidth: "560px", lineHeight: 1.75, marginBottom: "2rem", opacity: heroIn ? 1 : 0, transition: "all 1.1s ease 0.3s" }}>
@@ -186,7 +186,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>What FSL Builds</span>
         <h2 style={h2base}>Decentralized infrastructure for<br />sovereign wellness education</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          FSL is a deployed hybrid Web3 infrastructure where an automated layer teaches and human practitioners provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is indexed to your wallet address. Session attestations are recorded on Ethereum Sepolia testnet. IPFS-based decentralized storage is scaffolded. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
+          FSL is a deployed hybrid Web3 infrastructure where an automated layer teaches and human Sovereign Guides provide all real care. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is indexed to your wallet address. Session attestations are recorded on Ethereum Sepolia testnet. IPFS-based decentralized storage is scaffolded. FSL is designed to operate outside HIPAA scope under stated deployment assumptions: it holds zero protected health information by architectural design.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {PILLARS.map((p, i) => (
@@ -223,7 +223,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>The Curriculum</span>
         <h2 style={h2base}>Learn. Practice. Earn. Grow.</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          EncryptHealth is a sovereign wellness school. The system teaches pattern literacy, orthomolecular frameworks, and plant-based nutrition from published literature &mdash; educational self-assessment, never diagnosis. AI surfaces educational information only. A qualified practitioner provides all real care.
+          EncryptHealth is a sovereign wellness school. The system teaches pattern literacy, orthomolecular frameworks, and plant-based nutrition from published literature &mdash; educational self-assessment, never diagnosis. AI surfaces educational information only. A qualified Sovereign Guide provides all real care.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {CURRICULUM.map((e, i) => (
@@ -332,7 +332,7 @@ export default function FSLLandingPage() {
         </div>
         <div>Decentralized infrastructure for sovereign wellness education</div>
         <div style={{ marginTop: "1rem", fontSize: "0.68rem", color: "rgba(122,155,168,0.55)", maxWidth: "600px", margin: "1rem auto 0" }}>
-          FSL is decentralized infrastructure for sovereign wellness education &mdash; not a medical provider, not a treatment service. The system teaches; human practitioners provide all real care. All AI outputs are educational only. Your data. Your sovereignty. Always.
+          FSL is decentralized infrastructure for sovereign wellness education &mdash; not a medical provider, not a treatment service. The system teaches; human Sovereign Guides provide all real care. All AI outputs are educational only. Your data. Your sovereignty. Always.
         </div>
       </footer>
 

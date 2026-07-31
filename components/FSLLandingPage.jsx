@@ -246,7 +246,7 @@ export default function FSLLandingPage() {
           <h2 style={h2base}>Think of it like owning your home.</h2>
           <p style={{ color: body, fontSize: "1rem", lineHeight: 1.78, maxWidth: "620px", marginBottom: "2.5rem" }}>
             With traditional health apps, you are renting space in someone else&rsquo;s building. The landlord &mdash; the corporation &mdash; sets the rules. They can sell your data, share it with third parties, or simply shut the doors.{" "}
-            <strong style={{ color: white }}>With FSL, you own the deed.</strong> Your wallet controls access to your record. No single company holds it. No one can revoke your access. No algorithm uses your truth against you.
+            <strong style={{ color: white }}>With FSL, you hold the key.</strong> Your wallet &mdash; not an email and password an operator can reset &mdash; controls who reaches your record. Access is granted and revoked by your signature, and every grant is recorded. FSL still operates the database today; client-side encryption, so that FSL cannot read your data even in principle, is scaffolded and specified as the Phase 5 doctoral contribution. What is already true: no algorithm profiles you, no data is sold, and no protected health information is stored at all.
           </p>
           {WEB3_ROWS.map((r, i) => (
             <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0.75rem", alignItems: "center", padding: "1.2rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>

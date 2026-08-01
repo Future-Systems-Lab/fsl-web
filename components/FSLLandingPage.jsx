@@ -161,13 +161,22 @@ export default function FSLLandingPage() {
       <section style={{ minHeight: "88vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "3rem 1.5rem 2rem", background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,217,255,0.07) 0%, transparent 70%)" }}>
         <span style={{ ...eyebrow, marginBottom: "1.2rem", opacity: heroIn ? 1 : 0, transition: "opacity 1s" }}>Decentralized Infrastructure for Sovereign Wellness Education</span>
         <h1 style={{ fontSize: "clamp(1.6rem, 6vw, 3.2rem)", lineHeight: 1.2, fontWeight: "normal", marginBottom: "1.2rem", maxWidth: "820px", opacity: heroIn ? 1 : 0, transform: heroIn ? "none" : "translateY(24px)", transition: "all 1.1s ease 0.15s" }}>
-          A Sovereign Guide can only work with one person at a time. A system that teaches their method can outlive them and reach everyone they never could &mdash;{" "}
-          <span style={{ color: cyan, fontStyle: "italic" }}>this system is the solution to that.</span>
+          A Web3 healthcare prototype for people who want{" "}
+          <span style={{ color: cyan, fontStyle: "italic" }}>sovereign control of their data.</span>
         </h1>
         <p style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", color: body, maxWidth: "560px", lineHeight: 1.75, marginBottom: "2rem", opacity: heroIn ? 1 : 0, transition: "all 1.1s ease 0.3s" }}>
-          Self-serve wellness education. Sovereign data. Human care.
+          Behavioral health as the proving ground &mdash; the most regulated, most identity-sensitive domain there is. If it holds here, it holds anywhere.
         </p>
         <p style={{ fontSize: "0.72rem", color: muted, letterSpacing: "0.08em", opacity: heroIn ? 1 : 0, transition: "opacity 1.1s ease 0.45s" }}>Wallet connection only &middot; No email required &middot; Pseudonymous by default</p>
+      </section>
+
+      <div style={divLine} />
+
+      {/* SOVEREIGN GUIDE PRINCIPLE */}
+      <section style={{ padding: "3rem 1.5rem", maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.05rem)", color: muted, lineHeight: 1.85, fontStyle: "italic", margin: 0 }}>
+          A Sovereign Guide can only work with one person at a time. A system that teaches their method can outlive them and reach everyone they never could &mdash; this system is the solution to that.
+        </p>
       </section>
 
       <div style={divLine} />

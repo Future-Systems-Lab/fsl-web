@@ -38,7 +38,7 @@ const WEB3_ROWS = [
   { old: "Records stored on a hospital server",      next: "Records access-gated to your wallet",  icon: "\u{1F3DB}\u{FE0F}" },
   { old: "A corporation decides who sees your data", next: "You decide who sees your data. Every time.",     icon: "\u{1F511}" },
   { old: "Your history can be used against you",     next: "Your history belongs only to you. Always.",      icon: "\u{1F6E1}\u{FE0F}" },
-  { old: "A corporation controls your wellness records", next: "You own and verify your records through SovereignLedger", icon: "\u{1F9FE}" },
+  { old: "A corporation controls your wellness records", next: "You verify your session attestations on SovereignLedger", icon: "\u{1F9FE}" },
 ];
 
 const STEPS = [

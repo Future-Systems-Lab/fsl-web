@@ -56,7 +56,7 @@ function useLivePrices() {
   );
   const [status, setStatus] = useState("loading");
   useEffect(() => {
-    // CoinGecko → CoinCap → Kraken, 60s cache; "unavailable" when every source fails
+    // Kraken → CoinGecko, 60s cache; "unavailable" when every source fails
     const fetchPrices = () => {
       getPrices(COINS.map((c) => c.symbol)).then((r) => {
         if (r.unavailable) { setStatus((st) => (st === "live" ? st : "unavailable")); return; }

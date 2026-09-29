@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getPrices } from "../lib/prices-fallback.mjs";
 
 const COINS = [
   { symbol: "XRP",  id: "ripple",            base: 2.18 },
@@ -53,27 +54,27 @@ function useLivePrices() {
   const [prices, setPrices] = useState(
     COINS.map((c) => ({ ...c, price: null, change: null }))
   );
+  const [status, setStatus] = useState("loading");
   useEffect(() => {
-    const ids = COINS.map((c) => c.id).join(",");
+    // CoinGecko → CoinCap → Kraken, 60s cache; "unavailable" when every source fails
     const fetchPrices = () => {
-      fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`)
-        .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then((d) => {
-          setPrices(
-            COINS.map((c) => {
-              const info = d[c.id];
-              if (!info || info.usd == null) return { ...c, price: null, change: null };
-              return { ...c, price: info.usd, change: info.usd_24h_change || 0 };
-            })
-          );
-        })
-        .catch((e) => { console.warn('[ticker] price fetch failed:', e.message); });
+      getPrices(COINS.map((c) => c.symbol)).then((r) => {
+        if (r.unavailable) { setStatus((st) => (st === "live" ? st : "unavailable")); return; }
+        setPrices(
+          COINS.map((c) => {
+            const info = r.prices[c.symbol];
+            if (!info) return { ...c, price: null, change: null };
+            return { ...c, price: info.usd, change: info.change24h };
+          })
+        );
+        setStatus("live");
+      });
     };
     fetchPrices();
     const id = setInterval(fetchPrices, 120000);
     return () => clearInterval(id);
   }, []);
-  return prices;
+  return { prices, status };
 }
 
 function fmt(n) {
@@ -95,7 +96,7 @@ const divLine  = { height: "1px", background: "linear-gradient(90deg, transparen
 const cardStyle = { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(0,217,255,0.1)", borderRadius: "4px", padding: "1.75rem" };
 
 export default function FSLLandingPage() {
-  const prices = useLivePrices();
+  const { prices, status: priceStatus } = useLivePrices();
   const [stigmaIdx, setStigmaIdx] = useState(0);
   const [stigmaVis, setStigmaVis] = useState(true);
   const [payIdx,    setPayIdx]    = useState(0);
@@ -127,7 +128,8 @@ export default function FSLLandingPage() {
           .ticker-inner:hover { animation-play-state: paused; }
         `}</style>
         <div className="ticker-inner">
-          {[...prices, ...prices].map((c, idx) => {
+          {priceStatus === "unavailable" && <span style={{ color: "rgba(0,217,255,0.8)", fontSize: "0.63rem", letterSpacing: "0.12em" }}>PRICES UNAVAILABLE ◆</span>}
+          {priceStatus !== "unavailable" && [...prices, ...prices].map((c, idx) => {
             const live = c.price != null;
             const up = c.change >= 0;
             return (

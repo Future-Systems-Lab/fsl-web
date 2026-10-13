@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPrices } from "../lib/prices-fallback.mjs";
+import { getPrices, tickerItem, REFRESH_MS } from "../lib/prices-fallback.mjs";
 
 const COINS = [
   { symbol: "XRP",  id: "ripple",            base: 2.18 },
@@ -50,37 +50,25 @@ const STEPS = [
 
 const PAY_LABELS = ["XRP","XLM","HBAR","ALGO","ADA","ETH"];
 
+// Ticker tone → color; "none" (missing change) and "flat" are neutral, never green/red.
+const TONE_COLOR = { up: "#00E676", down: "#FF5252", flat: "#7A9BA8", none: "#7A9BA8" };
+
 function useLivePrices() {
   const [prices, setPrices] = useState(
-    COINS.map((c) => ({ ...c, price: null, change: null }))
+    COINS.map((c) => ({ ...c, item: tickerItem(c.symbol, null) }))
   );
-  const [status, setStatus] = useState("loading");
   useEffect(() => {
-    // Kraken → CoinGecko, 60s cache; "unavailable" when every source fails
+    // Shared lib/prices-fallback.mjs: rolling 24h change (CoinGecko) for every coin; "—" when missing or failed
     const fetchPrices = () => {
       getPrices(COINS.map((c) => c.symbol)).then((r) => {
-        if (r.unavailable) { setStatus((st) => (st === "live" ? st : "unavailable")); return; }
-        setPrices(
-          COINS.map((c) => {
-            const info = r.prices[c.symbol];
-            if (!info) return { ...c, price: null, change: null };
-            return { ...c, price: info.usd, change: info.change24h };
-          })
-        );
-        setStatus("live");
+        setPrices(COINS.map((c) => ({ ...c, item: tickerItem(c.symbol, r.prices[c.symbol]) })));
       });
     };
     fetchPrices();
-    const id = setInterval(fetchPrices, 120000);
+    const id = setInterval(fetchPrices, REFRESH_MS);
     return () => clearInterval(id);
   }, []);
-  return { prices, status };
-}
-
-function fmt(n) {
-  if (n >= 100) return n.toLocaleString("en-US", { maximumFractionDigits: 0 });
-  if (n >= 1)   return n.toFixed(2);
-  return n.toFixed(4);
+  return { prices };
 }
 
 const cyan  = "#00D9FF";
@@ -96,7 +84,7 @@ const divLine  = { height: "1px", background: "linear-gradient(90deg, transparen
 const cardStyle = { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(0,217,255,0.1)", borderRadius: "4px", padding: "1.75rem" };
 
 export default function FSLLandingPage() {
-  const { prices, status: priceStatus } = useLivePrices();
+  const { prices } = useLivePrices();
   const [stigmaIdx, setStigmaIdx] = useState(0);
   const [stigmaVis, setStigmaVis] = useState(true);
   const [payIdx,    setPayIdx]    = useState(0);
@@ -128,15 +116,14 @@ export default function FSLLandingPage() {
           .ticker-inner:hover { animation-play-state: paused; }
         `}</style>
         <div className="ticker-inner">
-          {priceStatus === "unavailable" && <span style={{ color: "rgba(0,217,255,0.8)", fontSize: "0.63rem", letterSpacing: "0.12em" }}>PRICES UNAVAILABLE ◆</span>}
-          {priceStatus !== "unavailable" && [...prices, ...prices].map((c, idx) => {
-            const live = c.price != null;
-            const up = c.change >= 0;
+          {[...prices, ...prices].map((c, idx) => {
+            const t = c.item;
             return (
-              <span key={idx} style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", fontSize: "0.72rem", letterSpacing: "0.06em" }}>
-                <span style={{ color: cyan, fontWeight: "bold" }}>{c.symbol}</span>
-                <span style={{ color: white }}>{live ? `$${fmt(c.price)}` : "—"}</span>
-                {live && c.change != null && <span style={{ color: up ? "#00E676" : "#FF5252", fontSize: "0.65rem" }}>{up ? "▲" : "▼"} {Math.abs(c.change).toFixed(2)}%</span>}
+              <span key={idx} className="ticker-item" data-sym={t.sym} style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", fontSize: "0.72rem", letterSpacing: "0.06em" }}>
+                <span style={{ color: cyan, fontWeight: "bold" }}>{t.sym}</span>
+                <span style={{ color: white }}>{t.price}</span>
+                <span data-tone={t.tone} style={{ color: TONE_COLOR[t.tone], fontSize: "0.65rem" }}>{t.change}</span>
+                <span style={{ color: "#7A9BA8", fontSize: "0.6rem" }}>{t.window}</span>
                 <span style={{ color: "rgba(0,217,255,0.6)", marginLeft: "0.5rem" }}>◆</span>
               </span>
             );

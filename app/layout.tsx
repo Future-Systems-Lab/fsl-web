@@ -4,6 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://futuresystemslab.io"),
   title: "SOVEREIGN by Design — Future Systems Lab",
   description: "Decentralized infrastructure for sovereign data governance, with behavioral health as deliberate proving ground.",
   icons: {
@@ -12,6 +13,18 @@ export const metadata: Metadata = {
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
     apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    type: "website",
+    url: "https://futuresystemslab.io",
+    siteName: "Future Systems Lab",
+    title: "Future Systems Lab — consent-first health-IT and Web3 engineering",
+    description: "HL7v2 to FHIR integration, wallet sign-in and hands-on courses, built by a clinician-engineer. Ethereum Sepolia testnet.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Future Systems Lab — consent-first health-IT and Web3 engineering",
+    description: "HL7v2 to FHIR integration, wallet sign-in and hands-on courses, built by a clinician-engineer.",
   },
 };
 

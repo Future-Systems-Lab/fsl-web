@@ -185,7 +185,7 @@ export default function FSLLandingPage() {
         <span style={eyebrow}>What FSL Builds</span>
         <h2 style={h2base}>Decentralized infrastructure for<br />sovereign wellness education</h2>
         <p style={{ color: body, fontSize: "1rem", lineHeight: 1.75, maxWidth: "620px", marginBottom: "3rem" }}>
-          FSL is a hybrid Web3 education infrastructure (Phase 1 deployed; Phases 2\u20134 scaffolded and specified) where an automated layer teaches and human Sovereign Guides lead the learning. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is indexed to your wallet address. Session attestations are recorded on Ethereum Sepolia testnet. IPFS-based decentralized storage is scaffolded. FSL is an education platform: it does not offer clinical care and is designed not to collect clinical records.
+          FSL is a hybrid Web3 education infrastructure (Phase 1 deployed; Phases 2–4 scaffolded and specified) where an automated layer teaches and human Sovereign Guides lead the learning. <strong style={{ color: cyan }}>EncryptHealth</strong> is the wellness education platform built on this infrastructure &mdash; a sovereign wellness school, not a clinic. Your wellness record is indexed to your wallet address. Session attestations are recorded on Ethereum Sepolia testnet. IPFS-based decentralized storage is scaffolded. FSL is an education platform: it does not offer clinical care and is designed not to collect clinical records.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {PILLARS.map((p, i) => (

@@ -22,9 +22,9 @@ const STIGMAS = [
 ];
 
 const PILLARS = [
-  { icon: "\u{1F4C1}", title: "Own Your Sovereign Record", body: "Your wellness record is indexed to your wallet address and stored in FSL\u2019s database. You grant Guides access with a wallet signature and revoke it any time. Session attestations are recorded on Ethereum Sepolia testnet. Client-side encryption and IPFS-based storage \u2014 so that FSL cannot read your data \u2014 are scaffolded and specified as the Phase 5 doctoral contribution." },
+  { icon: "\u{1F4C1}", title: "Your Wallet-Indexed Record", body: "Your wellness record is indexed to your wallet address and stored in FSL\u2019s database. You grant Guides access with a wallet signature and revoke it any time. Session attestations are recorded on Ethereum Sepolia testnet. Client-side AES-256-GCM encryption is live for AlchemistForge entries; encrypted lab-file storage is built but not yet available. Extending client-side encryption and IPFS-based storage to the whole record \u2014 so that FSL cannot read your data \u2014 is scaffolded and specified as the Phase 5 doctoral contribution." },
   { icon: "\u{1F469}\u{1F3FD}\u{200D}\u{2695}\u{FE0F}", title: "Invite Your Sovereign Guides", body: "Choose who enters your record. Invite the Sovereign Guides you trust \u2014 naturopaths, functional medicine practitioners, hypnotherapists, and more. You grant access. You revoke it. On your terms." },
-  { icon: "\u{1F9FE}", title: "Track & Verify on SovereignLedger", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Session attestations recorded on-chain. Your sessions, your data, your terms." },
+  { icon: "\u{1F9FE}", title: "Track & Verify on SovereignLedger", body: "Track and verify your wellness journey directly through SovereignLedger \u2014 our sovereign records infrastructure. Session attestations recorded on the Ethereum Sepolia testnet. Your sessions, your consent, your terms." },
   { icon: "\u{1F48E}", title: "Pay How You Choose", body: "Crypto and ISO 20022-aligned digital assets. No gatekeeping. No bank required. Sovereign payment paths built for the future of wellness." },
 ];
 
@@ -211,7 +211,7 @@ export default function FSLLandingPage() {
         </div>
         <p style={{ color: body, fontSize: "1rem", maxWidth: "580px", margin: "0 auto", lineHeight: 1.78 }}>
           These are not weaknesses. They are the rational response of someone who has learned the system cannot be trusted with their truth.{" "}
-          <strong style={{ color: white }}>FSL was built for exactly this moment.</strong> The system teaches. Care stays human. Your data stays yours.
+          <strong style={{ color: white }}>FSL was built for exactly this moment.</strong> The system teaches. Education stays human-led. Your record stays access-gated to your wallet.
         </p>
       </section>
 
@@ -244,7 +244,7 @@ export default function FSLLandingPage() {
           <h2 style={h2base}>Think of it like owning your home.</h2>
           <p style={{ color: body, fontSize: "1rem", lineHeight: 1.78, maxWidth: "620px", marginBottom: "2.5rem" }}>
             With traditional health apps, you are renting space in someone else&rsquo;s building. The landlord &mdash; the corporation &mdash; sets the rules. They can sell your data, share it with third parties, or simply shut the doors.{" "}
-            <strong style={{ color: white }}>With FSL, you hold the key.</strong> Your wallet &mdash; not an email and password an operator can reset &mdash; controls who reaches your record. Access is granted and revoked by your signature, and every grant is recorded. FSL still operates the database today; client-side encryption, so that FSL cannot read your data even in principle, is scaffolded and specified as the Phase 5 doctoral contribution. What is already true: no algorithm profiles you, no data is sold, and no protected health information is stored at all.
+            <strong style={{ color: white }}>With FSL, you hold the key.</strong> Your wallet &mdash; not an email and password an operator can reset &mdash; controls who reaches your record. Access is granted and revoked by your signature, and every grant is recorded. FSL still operates the database today; client-side encryption is live for AlchemistForge entries, encrypted lab-file storage is built but not yet available, and extending encryption to the whole record, so that FSL cannot read your data even in principle, is scaffolded and specified as the Phase 5 doctoral contribution. What is already true: no algorithm profiles you, no data is sold, no protected health information is written on chain, and the platform runs on simulated data.
           </p>
           {WEB3_ROWS.map((r, i) => (
             <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: "0.75rem", alignItems: "center", padding: "1.2rem 0", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
@@ -289,7 +289,7 @@ export default function FSLLandingPage() {
               );
             })}
           </div>
-          <p style={{ color: muted, fontSize: "0.72rem", marginTop: "1.25rem" }}>SovereignLedger records session attestations on-chain. All billing flows between you and your Sovereign Guide remain private to that relationship.</p>
+          <p style={{ color: muted, fontSize: "0.72rem", marginTop: "1.25rem" }}>SovereignLedger records session attestations on the Ethereum Sepolia testnet. All billing flows between you and your Sovereign Guide remain private to that relationship.</p>
         </div>
       </section>
 
